@@ -1,0 +1,15 @@
+<div class="movie-list">
+    <div class="movie-grid">
+        @for (movie of movieService.movies; track movie.id){
+            <div class="movie-card" (click)="navigateTo(movie.id)">
+                <img [src]="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" alt="{{movie.title}} poster">
+                <div class="movie-meta">
+                    <h3>{{movie.title}}</h3>
+                    <button class="add-btn" (click)="addToWishlist(movie); $event.stopPropagation()">
+                        Add to wishlist
+                    </button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
